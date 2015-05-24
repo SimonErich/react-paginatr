@@ -3,7 +3,7 @@
 var React = require('react');
 
 
-var Paginatr = React.createClass({displayName: "Paginatr",
+var Paginatr = React.createClass({
 
 
      propTypes: {
@@ -131,16 +131,16 @@ var Paginatr = React.createClass({displayName: "Paginatr",
           var Pages = this.createPageArr(). map(function(p, i)
           {
 
-              if(p == 'break') return ( React.createElement("li", {key: 'pgn'+ p +'-'+ i}, React.createElement("span", null, breakLabel)) );
+              if(p == 'break') return ( <li key={'pgn'+ p +'-'+ i}><span>{breakLabel}</span></li> );
 
               // display page number
                if(page != p)
                {
-                  return React.createElement("li", {key: 'pgn'+ p +'-'+ i}, React.createElement("a", {href: "#", "data-page": p, onClick: that.onPageSelect}, (p + 1)));
+                  return <li key={'pgn'+ p +'-'+ i}><a href="#" data-page={p} onClick={that.onPageSelect}>{(p + 1)}</a></li>;
                }
                else
                {
-                  return React.createElement("li", {key: 'pgn'+ p +'-'+ i, className: "active"}, React.createElement("span", null, (p + 1)));
+                  return <li key={'pgn'+ p +'-'+ i} className="active"><span>{(p + 1)}</span></li>;
                }
 
 
@@ -148,18 +148,18 @@ var Paginatr = React.createClass({displayName: "Paginatr",
 
         // render it
          return (
-            React.createElement("ul", {className: this.props.containerClass}, 
-                 (this.props.prevLabel == false || page == 0) ? null :
-                    React.createElement("li", {key: "pgn-prev"}, React.createElement("a", {href: "#", "data-page": (page - 1), onClick: that.onPageSelect}, this.props.prevLabel)),
-                
+            <ul className={this.props.containerClass}>
+                { (this.props.prevLabel == false || page == 0) ? null :
+                    <li key="pgn-prev"><a href="#" data-page={(page - 1)} onClick={that.onPageSelect}>{this.props.prevLabel}</a></li>
+                }
 
-               Pages, 
+               {Pages}
 
 
-                 (this.props.nextLabel == false || page == this.props.pagesTotal) ? null :
-                    React.createElement("li", {key: "pgn-next"}, React.createElement("a", {href: "#", "data-page": (page + 1), onClick: that.onPageSelect}, this.props.nextLabel))
-                
-            )
+                { (this.props.nextLabel == false || page == this.props.pagesTotal) ? null :
+                    <li key="pgn-next"><a href="#" data-page={(page + 1)} onClick={that.onPageSelect}>{this.props.nextLabel}</a></li>
+                }
+            </ul>
          );
 
 

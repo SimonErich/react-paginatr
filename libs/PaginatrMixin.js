@@ -2,14 +2,15 @@
 
 var PaginatrMixin = 
   {
-  
-      getInitialState: function() {
+
+
+       getInitialState: function() {
            return {
              _page: 0
            }
        },
 
-       paginateIt: function(data, perPage, _page)
+      paginate: function(data, perPage, _page)
        {
 
            // define _page
@@ -29,13 +30,13 @@ var PaginatrMixin =
        },
 
 
-      onSelectPage: function(_page)
+      onPageSelect: function(_page, clickEvent)
        {
 
            // change _page state
             this.setState({ _page: _page });
 
-       },
+       }
 
 
 

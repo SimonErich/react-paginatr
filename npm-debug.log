@@ -1,0 +1,76 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'publish', './' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.37
+4 verbose node symlink /usr/bin/node
+5 verbose publish [ './' ]
+6 verbose cache add [ './', null ]
+7 verbose cache add name=undefined spec="./" args=["./",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: './',
+8 verbose parsed url   path: './',
+8 verbose parsed url   href: './' }
+9 silly lockFile 0ee6c175- ./
+10 verbose lock ./ /home/simonerich/.npm/0ee6c175-.lock
+11 verbose tar pack [ '/home/simonerich/.npm/react-paginatr/0.1.0/package.tgz',
+11 verbose tar pack   './' ]
+12 verbose tarball /home/simonerich/.npm/react-paginatr/0.1.0/package.tgz
+13 verbose folder ./
+14 info prepublish react-paginatr@0.1.0
+15 silly lockFile 04cb2bca-tar tar://./
+16 verbose lock tar://./ /home/simonerich/.npm/04cb2bca-tar.lock
+17 silly lockFile f33a5977-react-paginatr-0-1-0-package-tgz tar:///home/simonerich/.npm/react-paginatr/0.1.0/package.tgz
+18 verbose lock tar:///home/simonerich/.npm/react-paginatr/0.1.0/package.tgz /home/simonerich/.npm/f33a5977-react-paginatr-0-1-0-package-tgz.lock
+19 silly lockFile 04cb2bca-tar tar://./
+20 silly lockFile 04cb2bca-tar tar://./
+21 silly lockFile f33a5977-react-paginatr-0-1-0-package-tgz tar:///home/simonerich/.npm/react-paginatr/0.1.0/package.tgz
+22 silly lockFile f33a5977-react-paginatr-0-1-0-package-tgz tar:///home/simonerich/.npm/react-paginatr/0.1.0/package.tgz
+23 silly lockFile 47dfc4af-npm-react-paginatr-0-1-0-package /home/simonerich/.npm/react-paginatr/0.1.0/package
+24 verbose lock /home/simonerich/.npm/react-paginatr/0.1.0/package /home/simonerich/.npm/47dfc4af-npm-react-paginatr-0-1-0-package.lock
+25 silly lockFile 47dfc4af-npm-react-paginatr-0-1-0-package /home/simonerich/.npm/react-paginatr/0.1.0/package
+26 silly lockFile 47dfc4af-npm-react-paginatr-0-1-0-package /home/simonerich/.npm/react-paginatr/0.1.0/package
+27 silly lockFile 0ee6c175- ./
+28 silly lockFile 0ee6c175- ./
+29 silly publish { name: 'react-paginatr',
+29 silly publish   description: 'Easy pagination for react applications',
+29 silly publish   version: '0.1.0',
+29 silly publish   main: './index.js',
+29 silly publish   standalone: 'react-paginatr',
+29 silly publish   license: 'MIT',
+29 silly publish   author: { name: 'Simon Auer' },
+29 silly publish   repository: { url: 'https://github.com/SimonErich/react-paginatr' },
+29 silly publish   bugs: { url: 'https://github.com/SimonErich/react-paginatr' },
+29 silly publish   dependencies: { react: '*' },
+29 silly publish   keywords:
+29 silly publish    [ 'reactjs',
+29 silly publish      'react',
+29 silly publish      'paginate',
+29 silly publish      'pagination',
+29 silly publish      'pages',
+29 silly publish      'marty',
+29 silly publish      'martyjs' ],
+29 silly publish   readme: '# React Paginatr\n\n**Easy pagination mixin and component for React.**\n\nWill add easy pagination with help of Array.slice function to display paginated lists.\nIncludes a react mixin to easily slice the results and a pagination view component (uses a simple list by default - compatible with bootstrap).\n\n\n##Installation:\n\nInstall react-paginatr with npm:\n\nrequire it in files to use and define Mixin and Component:\n```javascript\n    var Paginatr = require(\'react-paginatr\'),\n        PaginatrMixin = Paginatr.Mixin,\n        PaginatrComponent = Paginatr.Component;\n```\n\n\n\n##Usage:\n\nrequire it in files to use and define Mixin and Component:\n```console\n$ npm install react-paginatr\n```\n\n\n###Paginating data:\n\nuse the paginate function in the mixin to get the array part for this page.\nthis will use the *_page* state attribute as current page by default\n\n```\n    ...\n    \n    render: function() {\n    \n        // paginate the full set of results in this.props.results\n         var ResultsArr = this.paginate(this.props.results);\n        \n        // map results\n         var Results = ResultArr.map(function(result)\n                   {\n                       return (\n                          <ResultItem key={\'k-\'+ result.id} result={result} />\n                       );\n                   }); \n                   \n        // display it\n         return (\n            <div>\n               {Results}\n            </div>\n         );\n                \n     },\n     \n     ...\n```\n\n\n####paginate method\n```javascript\n   this.paginate(data, perPage, _page)\n```\n     \n     \n#####array `data`\n\nAn array with items to paginate.\n\n```javascript\n var data = [\n              { id: 1, name: \'Pete\' },\n              { id: 1, name: \'Miriam\' },\n              { id: 1, name: \'Heinz\' },\n              { id: 1, name: \'Brunhilde\' }\n            ];\n```\n\n\n#####integer `perPage` (default: 12)\n\nthe number of items per page\n\n\n#####integer `_page` (optional | defaults to: this.state._page)\n\ncurrent page number. If not set it will use this.state._page. (only needs to be set in special situations)\n\n\n \n\n\n###Pagination Component:\n\ndisplaying the pagination box is quite easy. Just drop the pagination component in there:\n\n```javascript\n    ...\n    \n    render: function() {\n        ...\n          <PaginatrComponent \n                  page={2}                         // int: current page number - required\n                  pagesTotal=[10}                  // int: number of total pages - required\n                  pageRangeDisplayed={1}           // int: how much around start and end should be displayed by default (default: 1)\n                  activePageRangeDisplayed={2}     // int: how much around active page should be displayed by default (default: 2)\n                  previousLabel="Previous"         // string: label for previous entry - false to disable previous button (default: "Previous")\n                  nextLabel="Previous"             // string: label for next entry - false to disable next button (default: "Next")\n                  breakLabel="Previous"            // string: label for breaks if there are too many pages to display at once - false to disable breaks (default: "...")\n                  onPageSelect={this.onPageSelect} // func: the function to change the page number. the mixin already adds a simple onPageSelect method. If you need more overwrite it. />\n        ... \n     },\n     \n     ...\n```\n\n',
+29 silly publish   readmeFilename: 'README.md',
+29 silly publish   gitHead: '918a1aa2fe4839f5502a78956d9dd23881e5b88c',
+29 silly publish   homepage: 'https://github.com/SimonErich/react-paginatr',
+29 silly publish   _id: 'react-paginatr@0.1.0',
+29 silly publish   scripts: {},
+29 silly publish   _shasum: '38df0f8d0e4385f7e32777a795326068aa621678',
+29 silly publish   _from: './' }
+30 error need auth auth and email required for publishing
+30 error need auth You need to authorize this machine using `npm adduser`
+31 error System Linux 3.13.0-48-generic
+32 error command "/usr/bin/node" "/usr/bin/npm" "publish" "./"
+33 error cwd /var/www/npmpacks/react-router-active
+34 error node -v v0.10.37
+35 error npm -v 1.4.28
+36 error code ENEEDAUTH
+37 verbose exit [ 1, true ]

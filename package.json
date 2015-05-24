@@ -1,13 +1,21 @@
 {
   "name": "react-paginatr",
   "description": "Easy pagination for react applications",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": "./index.js",
   "standalone": "react-paginatr",
   "license": "MIT",
   "author": {
-    "name": "Simon Auer",
-    "email": "simon@du-agentur.at"
+    "name": "Simon Auer"
+  },
+  "repository": {
+    "url": "https://github.com/SimonErich/react-paginatr"
+  },
+  "bugs": {
+    "url": "https://github.com/SimonErich/react-paginatr"
+  },
+  "dependencies": {
+    "react": "*"
   },
   "keywords": [
     "reactjs",
@@ -17,5 +25,6 @@
     "pages",
     "marty",
     "martyjs"
-  ]
+  ],
+  "license": "MIT"
 }

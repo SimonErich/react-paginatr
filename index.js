@@ -1,7 +1,7 @@
 'use strict';
 
-var PaginatrComponent = require('./libs/PaginatorComponent.js');
-var PaginatrMixin = require('./libs/PaginatorMixin.js');
+var PaginatrComponent = require('./libs/PaginatrComponent');
+var PaginatrMixin = require('./libs/PaginatrMixin');
  
 module.exports = {
   Component: PaginatrComponent,
