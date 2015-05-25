@@ -57,7 +57,7 @@ var Paginatr = React.createClass({displayName: "Paginatr",
           {
 
                // just create a map
-                return Array((this.props.pagesTotal - 1));
+                return Array(parseInt((this.props.pagesTotal - 1)));
 
           }
 
@@ -66,7 +66,7 @@ var Paginatr = React.createClass({displayName: "Paginatr",
           {
 
               // shortcut all
-               var pagesTotal = this.props.pagesTotal,
+               var pagesTotal = parseInt(this.props.pagesTotal),
                    page = parseInt(this.props.page),
                    activePageRangeDisplayed = parseInt(this.props.activePageRangeDisplayed),
                    pageRangeDisplayed = this.props.pageRangeDisplayed,
@@ -122,6 +122,9 @@ var Paginatr = React.createClass({displayName: "Paginatr",
     render: function()
     {
 
+         // if we got less than 1 page -> return nothing
+          if(this.props.pagesTotal < 2) return null;
+          
          // get current page
           var page = this.props.page,
               breakLabel = this.props.breakLabel;
