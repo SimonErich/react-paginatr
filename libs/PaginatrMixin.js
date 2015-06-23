@@ -19,15 +19,14 @@ var PaginatrMixin =
            // define _page
             var _page = (_page) ? _page : this.state._page;
             
+            console.log(_page);
+            
            // define the start
             var start = (_page * perPage);
             var end = start + perPage;
 
            // only get the last data in there
             var retArr = data.slice(start, end);
-            
-           // if no data found -> set page to null
-            if(retArr.length < 1) this.setState({ _page: 0 }); 
 
            // return the array
             return retArr;

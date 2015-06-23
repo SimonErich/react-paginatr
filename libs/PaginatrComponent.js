@@ -159,7 +159,7 @@ var Paginatr = React.createClass({displayName: "Paginatr",
                Pages, 
 
 
-                 (this.props.nextLabel == false || page == this.props.pagesTotal) ? null :
+                 (this.props.nextLabel == false || page == this.props.pagesTotal || (page + 1) >= this.props.pagesTotal) ? null :
                     React.createElement("li", {key: "pgn-next"}, React.createElement("a", {href: "#", "data-page": (page + 1), onClick: that.onPageSelect}, this.props.nextLabel))
                 
             )
