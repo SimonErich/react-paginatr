@@ -126,15 +126,37 @@ displaying the pagination box is quite easy. Just drop the pagination component 
     render: function() {
         ...
           <PaginatrComponent 
-                  page={2}                         /* int: current page number - required */
+                  page={this.state._page}          /* int: current page number - required */
                   pagesTotal={10}                  /* int: number of total pages - required */
                   pageRangeDisplayed={1}           /* int: how much around start and end should be displayed by default (default: 1) */
                   activePageRangeDisplayed={2}     /* int: how much around active page should be displayed by default (default: 2) */
                   prevLabel="«"                    /* string: label for previous entry - false to disable previous button (default: "Previous") */
                   nextLabel="»"                    /* string: label for next entry - false to disable next button (default: "Next") */
                   breakLabel="...     "            /* string: label for breaks if there are too many pages to display at once - false to disable breaks (default: "...") */
-                  containerClass="paginator"       /* string: label for breaks if there are too many pages to display at once - false to disable breaks (default: "...") */
+                  containerClass="pagination"      /* string: label for breaks if there are too many pages to display at once - false to disable breaks (default: "...") */
                   onPageSelect={this.onPageSelect} /* func: the function to change the page number. the mixin already adds a simple onPageSelect method. If you need more overwrite it. */
+          />
+        ... 
+     },
+     
+     ...
+```
+
+
+
+###### minimal component attributes
+
+to make the component work you need at least those three attributes:
+
+```javascript
+    ...
+    
+    render: function() {
+        ...
+          <PaginatrComponent
+                  page={this.state._page}
+                  pagesTotal={10}
+                  onPageSelect={this.onPageSelect}
           />
         ... 
      },
