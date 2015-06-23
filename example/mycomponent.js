@@ -19,7 +19,7 @@ var Mycomponent = React.createClass({
                                     { id: 3, name: 'Heinz' },
                                     { id: 4, name: 'Brunhilde' }
                                 ];
-                  var pagesTotal = (dataArr.length / this.resultsPerPage);
+                  var pagesTotal = Math.ceil(dataArr.length / this.resultsPerPage);
 
                  // paginate the full set of results in this.props.results
                   var paginatedResults = this.paginate(dataArr,                     // the data array
